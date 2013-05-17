@@ -16,7 +16,7 @@ echo "Checking for update"
 CHROMIUM_LATEST_VERSION=$(curl -s -S $CHROMIUM_URL/LAST_CHANGE)
 	echo "Latest Chromium version:  $CHROMIUM_LATEST_VERSION"
 
-if [ "$CHROMIUM_CURRENT_VERSION" == "" ] || [ $CHROMIUM_CURRENT_VERSION -lt $CHROMIUM_LATEST_VERSION ]; then
+if [ "$CHROMIUM_CURRENT_VERSION" == "" ] || [ $CHROMIUM_CURRENT_VERSION < $CHROMIUM_LATEST_VERSION ]; then
 	echo "Latest version of Chromium will be installed"
 	echo "Checking if Chromium is running"
 	if [ `ps -A | grep Chromium | wc -l` != 1 ]; then
